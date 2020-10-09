@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: read-excel-file 
+  data: 
+    mongodb:
+      host: mongo.odix.fr:30017
+      username: fsdf+34jkk558-gjl57
+      password: ogdfdsfdfhgnsbfg53f432f3h2s3fh1qf3d1h6d5f46g4gf3123g2h13g4jsfg64
+      database: erp-uploadFiles-ms
+      authentication-database: admin
+---
+server:
+  port: 9001
+---
+logging:
+  level:
+    org.springframework.cache: TRACE

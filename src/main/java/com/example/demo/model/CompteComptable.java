@@ -2,6 +2,8 @@ package com.example.demo.model;
 
 import java.time.LocalDateTime;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.AllArgsConstructor;
@@ -14,14 +16,15 @@ import lombok.NoArgsConstructor;
 @Document
 public class CompteComptable {
 
-	private String id;
-	private String uuid;
-	private String uuidUtilisateur;
-	private String uuidEntreprise; // Null dans le cas d'un compte privé
+		@Id
+		private String  id;
+		private String  uuid;
+		private String  uuidUtilisateur;
+		@Indexed
+		private String  uuidEntreprise; // null dans le cas d'un compte pcg
 
-	private String classe;
-	private String numero;
-	private String description;
-	private boolean comptePrive; // True dans le cas d'un compte privé
-	private String dateCreation = LocalDateTime.now().toString();
+		private String  numero; //8 digits obligatoire
+		private String  description;
+		private boolean comptePcg = true; // true dans le cas d'un compte pcg : plan comptable générale
+		private String  dateCreation = LocalDateTime.now().toString();
 }

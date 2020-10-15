@@ -1,19 +1,15 @@
 package com.example.demo.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.example.demo.model.CompteComptable;
 import com.example.demo.service.ReadExcelFileService;
 import com.example.demo.util.ExcelHelper;
 import com.example.demo.util.ResponseMessage;
@@ -29,12 +25,7 @@ public class ReadExcelFileController {
 	@Autowired
 	ReadExcelFileService readExcelFileService;
 
-	@GetMapping()
-	public List<CompteComptable> getAllCompteComptablesGenereux(@RequestParam("file") MultipartFile file) {
-		return readExcelFileService.getAllCompteComptablesGenereux();
-	}
-
-	@PostMapping("/upload")	
+	@PostMapping("/upload")
 	public ResponseEntity<ResponseMessage> uploadFile(@RequestParam("file") MultipartFile file) {
 		String message = "";
 
